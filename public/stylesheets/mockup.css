@@ -1,0 +1,161 @@
+html{
+	height: 100%;
+	
+}
+
+body {
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	/*background-color: #CCCCFF;*/
+	background-image:url('../images/wrapper_background.gif');
+	/*background-repeat:repeat-y;*/
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#spacerTopLeft {
+	float:left;
+	background-color: #FF0000;
+	width: 200px;
+	height: 40px;
+}
+
+#spacerTopRight {
+	float:right;
+	background-color: #FF0000;
+	width: 200px;
+	height: 40px;
+}
+
+#bigWrapper {
+	text-align: left;
+	margin: 0px auto;
+	padding: 0px;
+	border:0;
+	width: 100%;
+	
+	
+}
+
+
+#container {
+	margin-left: 200px;
+	margin-right: 200px;
+	background-color: #FF0000;
+	height: 600px;
+	
+}
+
+#header {
+	background-color: #ccccff;
+	height: 40px;
+}
+
+#topMenu {
+	background-color: #000000;
+	height: 28px;
+	box-shadow:0px 2px 4px #333322; 
+}
+
+
+
+#footer {
+	
+	background-color: #444444;
+	height: 20px;
+}
+
+.push {
+  clear:both;
+}
+
+a.signup_button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #3333FF;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
+
+
+#content {
+	background-color: #ccccff;
+	margin-left: 200px;
+	margin-right: 200px;	
+	/*height: 100%;*/ 
+	
+	
+}
+
+ul {
+	list-style-type: none;
+	height: 28px;
+	width: 100%;
+	margin: auto;
+} 
+
+li {
+	float: left;
+}
+
+ul a {
+	
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: 10px;
+	padding-left: 10px;
+	display: block; 
+	line-height: 28px;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+	
+ul a:hover {
+	color: #00FFFF;
+}
+
+#menuBar {
+	float:right;
+	
+	
+}
+#menuWrapper {
+	margin-left: 200px;
+	margin-right: 200px;		
+	
+}
+#signupBox{
+	float:left;
+	width: 50%;
+	height: 400px;
+	
+}
+#featuredPicture{
+	float:left;
+	background-image:url("../images/messi8.jpg");
+	width: 400px;
+	height: 521px;
+	width: 50%;
+	background-repeat: no-repeat;
+}
+#joinToday{
+	text-align:center;
+}
+
+
