@@ -148,7 +148,7 @@ ul a:hover {
 }
 #featuredPicture{
 	float:left;
-	background-image:url("../images/messi8.jpg");
+	/*background-image:url("../images/messi8.jpg");*/
 	width: 400px;
 	height: 521px;
 	width: 50%;

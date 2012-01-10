@@ -1,6 +1,8 @@
 Soccerweb::Application.routes.draw do
+  resources :users
+  
   match '/about',   :to => 'pages#about'
-    
+  match '/signup',  :to => 'users#new'
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:
