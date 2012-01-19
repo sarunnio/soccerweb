@@ -1,0 +1,10 @@
+#box1{
+	float:left;
+	width:200px;
+	background-color:purple;
+}
+
+#box2{
+	width:400px;
+	background-color:orange;
+}

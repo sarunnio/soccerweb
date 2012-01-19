@@ -21,15 +21,7 @@ class User < ActiveRecord::Base
     end
 
     def encrypt(string)
-       secure_hash("#{salt}--#{string}")
-    end
-    
-     def make_salt
-      secure_hash("#{Time.now.utc}--#{password}")
-    end
-
-    def secure_hash(string)
-      Digest::SHA2.hexdigest(string)
+      string # Only a temporary implementation!
     end
   
 end
