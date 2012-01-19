@@ -1,4 +1,6 @@
 Soccerweb::Application.routes.draw do
+  get "sessions/new"
+
   resources :users
   
   match '/about',   :to => 'pages#about'
