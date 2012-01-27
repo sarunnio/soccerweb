@@ -5,7 +5,16 @@ class SessionsController < ApplicationController
   end
   
   def create
-    @title = "create"
+    user = User.authenticate(params[:session][:email],
+                             params[:session][:password])
+    if user.nil?
+      
+      @title = "Sign in"
+      render 'new'
+    else
+      sign_in user
+      redirect_to root_url
+    end
   end
   
   def destroy
@@ -14,6 +23,11 @@ class SessionsController < ApplicationController
   
   def show
     @title = "show"
+  end
+  
+  def destroy
+    sign_out
+    redirect_to root_path
   end
 
 end
