@@ -1,3 +1,5 @@
 <h1>
-  <%= @user.name %>
+  <div><%= @user.name %></div>
+  <div><%= gravatar_image_tag @user.email %></div>
+  <div><%= link_to "edit", edit_user_path %>  </div>
 </h1>
