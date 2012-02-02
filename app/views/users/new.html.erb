@@ -4,9 +4,19 @@
 	<%= f.text_field :name %><br/>
 	<%= f.label :email %><br/>
 	<%= f.text_field :email %><br/>
+	<%= f.label :birth_date %><br/>
+	<%= f.text_field :birth_date %><br/>
 	<%= f.label :password %><br/>
 	<%= f.password_field :password %><br/>
 	<%= f.label :password_confirmation, "Confirmation"  %><br/>
 	<%= f.password_field :password_confirmation %><br/>
 	<%= f.submit "Sign up" %>
 <% end %>
+<%= javascript_include_tag 'jquery-1.4.2.min.js', 'application'  %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$("#user_birth_date").datepicker({ showOn: 'button', buttonText: "select" });
+	});
+</script>
