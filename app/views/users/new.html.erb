@@ -12,11 +12,16 @@
 	<%= f.password_field :password_confirmation %><br/>
 	<%= f.submit "Sign up" %>
 <% end %>
-<%= javascript_include_tag 'jquery-1.4.2.min.js', 'application'  %>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js"></script>
+<%= javascript_include_tag 'jquery-1.7.1.min.js', 'application'  %>
+<%= javascript_include_tag 'jquery-ui-1.8.17.custom.min.js', 'application'  %>
+<%= stylesheet_link_tag 'jquery-ui-1.8.17.custom.css' %>
+
+<!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js"></script-->
 <script type="text/javascript">
 	$(document).ready(function(){
-			$("#user_birth_date").datepicker({ showOn: 'button', buttonText: "select" });
+			//$("#user_birth_date").datepicker({ showOn: 'button', buttonText: "select" });
+			$("#user_birth_date").datepicker();
+					
 	});
 </script>
