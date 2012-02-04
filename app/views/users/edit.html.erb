@@ -13,7 +13,7 @@
   </div>
   <div class="field">
   	<%= f.label :birth_date %><br/>
-	<%= f.text_field :birth_date %><br/>
+	<%= f.text_field :birth_date, :value => date_format(@user.birth_date), :size => 10  %><br/>
   </div>
   <div class="field">
     <%= f.label :password %><br />
@@ -27,3 +27,35 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
+<%= javascript_include_tag 'jquery-1.7.1.min.js' %>
+<%= javascript_include_tag 'jquery-ui-1.8.17.custom.min.js'  %>
+<%= stylesheet_link_tag 'jquery-ui-1.8.17.custom.css' %>
+<%= javascript_include_tag 'jquery-ui-1.8.10.offset.datepicker.min.js'  %>
+
+<script type="text/javascript">
+	var d=new Date(); 
+	var toDay = d.getDate() + '/'
+	+ (d.getMonth()+1) + '/'
+	+ (d.getFullYear()+543);
+	$("#user_birth_date").datepicker({ dateFormat: 'dd/mm/yy',
+     isBuddhist: true, 
+     defaultDate: toDay ,
+     dayNames: ['อาทิตย์','จันทร์','อังคาร',
+                        'พุธ','พฤหัสบดี','ศุกร์','เสาร์'],
+     dayNamesMin: ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'],
+     monthNames: ['มกราคม','กุมภาพันธ์','มีนาคม',
+                        'เมษายน','พฤษภาคม','มิถุนายน',
+                        'กรกฎาคม','สิงหาคม','กันยายน',
+                        'ตุลาคม','พฤศจิกายน','ธันวาคม'],
+     monthNamesShort: ['ม.ค.','ก.พ.','มี.ค.','เม.ย.',
+                         'พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.',
+                         'พ.ย.','ธ.ค.']
+    });
+	// $(document).ready(function(){
+			// //$("#user_birth_date").datepicker({ showOn: 'button', buttonText: "select" });
+			// $("#user_birth_date").datepicker();
+			// $("#user_birth_date").datepicker( $.datepicker.regional[ "th" ] );
+			// $("#user_birth_date").datepicker( "option", "dateFormat", "dd/mm/yy" );
+// 					
+	// });
+</script>
