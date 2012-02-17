@@ -22,8 +22,7 @@ class UsersController < ApplicationController
       @user.name = params[:user][:name]
       @user.email = params[:user][:email]
       @user.password = params[:user][:password]
-      @user.birth_date = params[:user][:birth_date]
-      
+            
       if @user.save    
         
         redirect_to @user
