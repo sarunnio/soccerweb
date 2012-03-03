@@ -4,7 +4,11 @@
 	<%= f.text_field :name %><br/>
 	<%= f.label :email %><br/>
 	<%= f.text_field :email %><br/>
-	
+	<%= f.label :league %><br/>
+	<%= 
+		@leagues = League.find(:all) 
+		collection_select(:league, :league_name, @leagues, :id, :league_name) 
+	%></br>
 	<%= f.label :password %><br/>
 	<%= f.password_field :password %><br/>
 	<%= f.label :password_confirmation, "Confirmation"  %><br/>
