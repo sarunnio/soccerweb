@@ -11,7 +11,13 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
- 
+  <div class="field">
+  	<%= f.label :league %><br/>
+	<%= 
+		@leagues = League.find(:all) 
+		collection_select(:user, :league_id, @leagues, :id, :league_name, :include_blank => true) 
+	%></br>
+  </div>
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>

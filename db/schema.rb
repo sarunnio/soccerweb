@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221014616) do
+ActiveRecord::Schema.define(:version => 20120303113821) do
 
   create_table "cars", :force => true do |t|
     t.string   "make"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120221014616) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "birth_date"
+    t.integer  "league_id"
   end
 
 end
