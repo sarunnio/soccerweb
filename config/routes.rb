@@ -1,11 +1,15 @@
 Soccerweb::Application.routes.draw do
   resources :sessions
   resources :users
+  resources :leagues
+  resources :teams
   
   match '/about',   :to => 'pages#about'
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  
+  match '/teams/for_leagueid/:id' => 'teams#for_leagueid'
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

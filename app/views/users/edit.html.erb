@@ -15,9 +15,19 @@
   	<%= f.label :league %><br/>
 	<%= 
 		@leagues = League.find(:all) 
-		collection_select(:user, :league_id, @leagues, :id, :league_name, :include_blank => true) 
+				
+		options = options_from_collection_for_select(@leagues, :id,:league_name, (!@user.team_id.nil?)?Team.find(@user.team_id).league_id : nil)
+	
+		select_tag "league_id", options
 	%></br>
   </div>
+  <div class="field">
+  	<%= f.label :team %><br/>
+  	<%= 
+  		collection_select(:user, :team_id, Team.find_all_by_league_id((!@user.team_id.nil?)?Team.find(@user.team_id).league_id : nil), :id, :team_name, options ={:prompt => ""}) 
+  		
+  	%>
+  </div>	
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
@@ -30,4 +40,44 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select#league_id").change(function(){
+            var id_value_string = $(this).val();
+            if (id_value_string == "") { 
+                // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
+                $("select#user_team_id option").remove();
+                var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                $(row).appendTo("select#user_team_id");
+            }
+            else {
+                // Send the request and update sub category dropdown 
+                $.ajax({
+                    dataType: "json",
+                    cache: false,
+                    url: '/teams/for_leagueid/' + id_value_string,
+                    timeout: 2000,
+                    error: function(XMLHttpRequest, errorTextStatus, error){
+                        alert("Failed to submit : "+ errorTextStatus+" ;"+error);
+                    },
+                    success: function(data){                    
+                        // Clear all options from sub category select 
+                        $("select#user_team_id option").remove();
+                        //put in a empty default line
+                        var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                        $(row).appendTo("select#user_team_id");                        
+                        // Fill sub category select 
+                        
+                        //alert (data.length);
+                        $.each(data, function(i, j){
+                            //alert(j.id);
+                            row = "<option value=\"" + j.id + "\">" + j.team_name + "</option>";   
+                            $(row).appendTo("select#user_team_id");                     
+                        });             
+                     }
+                });
+            };
+        });
+    });
+</script>
 

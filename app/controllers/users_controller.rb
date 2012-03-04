@@ -18,12 +18,16 @@ class UsersController < ApplicationController
   end
   
   def update
+      
+      #@user = User.new(params[:user])
+            
       @user = User.find(params[:id])
       @user.name = params[:user][:name]
       @user.email = params[:user][:email]
       @user.password = params[:user][:password]
-      @user.league_id = params[:user][:league_id]
-            
+      @user.birth_date = params[:user][:birth_date]
+      @user.team_id = params[:user][:team_id]
+      
       if @user.save    
         
         redirect_to @user
@@ -58,6 +62,9 @@ class UsersController < ApplicationController
   def edit
     @title = "Edit"
     @user = User.find(params[:id])
+    
+    # @consultants = CommunalAuditConsultant.find(:all, :order => "lastname"
+# ).map {|c| [c.lastname, c.id] }
   end
   
 end

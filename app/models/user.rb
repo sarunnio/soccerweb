@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
   
   attr_accessor :password
-  attr_accessible  :name, :email, :password, :password_confirmation, :birth_date, :league_id
+  attr_accessible  :name, :email, :password, :password_confirmation, :birth_date, :team_id
   
   validates :password, :presence => true, 
                        :confirmation => true, 
                        :length => {:within => 6..40}
                        
-  validates :league_id, :presence=> true
+  validates :team_id, :presence=> true
   
   before_save :encrypt_password
   

@@ -1,17 +1,76 @@
 <%= form_for(@user) do |f|%>
+	
 	<%= render 'shared/error_messages' %>
-	<%= f.label :name %><br/>
-	<%= f.text_field :name %><br/>
-	<%= f.label :email %><br/>
-	<%= f.text_field :email %><br/>
-	<%= f.label :league %><br/>
-	<%= 
-		@leagues = League.find(:all) 
-		collection_select(:user, :league_id, @leagues, :id, :league_name, :include_blank => true) 
-	%></br>
-	<%= f.label :password %><br/>
-	<%= f.password_field :password %><br/>
-	<%= f.label :password_confirmation, "Confirmation"  %><br/>
-	<%= f.password_field :password_confirmation %><br/>
-	<%= f.submit "Sign up" %>
+	<div class="field">
+		<%= f.label :name %><br/>
+		<%= f.text_field :name %><br/>
+	</div>
+	<div class="field">
+		<%= f.label :email %><br/>
+		<%= f.text_field :email %><br/>
+	</div>
+	<div class="field">
+		<%= f.label :league %><br/>
+		<%= 
+			@leagues = League.find(:all) 
+			collection_select(:league, :id, @leagues, :id, :league_name, :include_blank => true) 
+		%></br>
+	</div>
+	<div class="field">
+		<%= f.label :team %><br/>
+		<%=  
+		 	collection_select(:user, :team_id, Team.find_all_by_league_id(nil), :id, :team_name, options ={:prompt => ""}) 
+		%><br/>
+	</div>
+	<div class="field">
+		<%= f.label :password %><br/>
+		<%= f.password_field :password %><br/>
+	</div>
+	<div class="field">
+		<%= f.label :password_confirmation, "Confirmation"  %><br/>
+		<%= f.password_field :password_confirmation %><br/>
+	</div>
+	<div class="field">
+		<%= f.submit "Sign up" %>
+	</div>
 <% end %>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select#league_id").change(function(){
+            var id_value_string = $(this).val();
+            if (id_value_string == "") { 
+                // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
+                $("select#user_team_id option").remove();
+                var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                $(row).appendTo("select#user_team_id");
+            }
+            else {
+                // Send the request and update sub category dropdown 
+                $.ajax({
+                    dataType: "json",
+                    cache: false,
+                    url: '/teams/for_leagueid/' + id_value_string,
+                    timeout: 2000,
+                    error: function(XMLHttpRequest, errorTextStatus, error){
+                        alert("Failed to submit : "+ errorTextStatus+" ;"+error);
+                    },
+                    success: function(data){                    
+                        // Clear all options from sub category select 
+                        $("select#user_team_id option").remove();
+                        //put in a empty default line
+                        var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                        $(row).appendTo("select#user_team_id");                        
+                        // Fill sub category select 
+                        
+                        //alert (data.length);
+                        $.each(data, function(i, j){
+                            //alert(j.id);
+                            row = "<option value=\"" + j.id + "\">" + j.team_name + "</option>";   
+                            $(row).appendTo("select#user_team_id");                     
+                        });             
+                     }
+                });
+            };
+        });
+    });
+</script>
