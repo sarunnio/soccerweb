@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       @user.email = params[:user][:email]
       @user.password = params[:user][:password]
       @user.birth_date = params[:user][:birth_date]
-      @user.team_id = params[:user][:team_id]
+      @user.club_id = params[:user][:club_id]
       
       if @user.save    
         

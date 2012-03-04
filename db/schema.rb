@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303235628) do
+ActiveRecord::Schema.define(:version => 20120304182402) do
 
   create_table "cars", :force => true do |t|
     t.string   "make"
@@ -20,15 +20,15 @@ ActiveRecord::Schema.define(:version => 20120303235628) do
     t.datetime "updated_at"
   end
 
-  create_table "leagues", :force => true do |t|
-    t.string   "league_name"
+  create_table "clubs", :force => true do |t|
+    t.string   "club_name"
+    t.integer  "league_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teams", :force => true do |t|
-    t.string   "team_name"
-    t.integer  "league_id"
+  create_table "leagues", :force => true do |t|
+    t.string   "league_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20120303235628) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "birth_date"
-    t.integer  "team_id"
+    t.integer  "club_id"
   end
 
 end
