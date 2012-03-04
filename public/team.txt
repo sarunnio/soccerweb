@@ -1,0 +1,11 @@
+liverpool|1
+man united|1
+man city|1
+saint etienne|2
+paris saint german|2
+bayern munich|3
+dortmund|3
+moenchen gladbuch|3
+levercusen|3
+barcelona|4
+malaga|4
