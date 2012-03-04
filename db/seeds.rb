@@ -12,11 +12,11 @@ open("http://stormy-moon-2288.heroku.com/league.txt") do |leagues|
     end
 end
 
-Team.delete_all
-Team.reset_pk_sequence
-open("http://stormy-moon-2288.heroku.com/team.txt") do |teams|
-    teams.read.each_line do |team|
-      team_name, league_id = team.chomp.split("|")
-      Team.create(:team_name => team_name, :league_id => league_id)
+Club.delete_all
+Club.reset_pk_sequence
+open("http://stormy-moon-2288.heroku.com/club.txt") do |clubs|
+    clubs.read.each_line do |club|
+      club_name, league_id = club.chomp.split("|")
+      Club.create(:club_name => club_name, :league_id => league_id)
     end
 end
