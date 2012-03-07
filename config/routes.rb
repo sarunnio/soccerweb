@@ -1,6 +1,8 @@
 Soccerweb::Application.routes.draw do
   resources :clubs
 
+  resources :clubs
+
   resources :teams
 
   resources :leagues

@@ -80,11 +80,4 @@ class ClubsController < ApplicationController
       format.json { head :ok }
     end
   end
-  
-  def for_leagueid
-  @clubs = Club.find( :all, :conditions => [" league_id = ?", params[:id]]  ).sort_by{ |k| k['club_name'] }    
-    respond_to do |format|
-      format.json  { render :json => @clubs }      
-    end
-  end
 end
