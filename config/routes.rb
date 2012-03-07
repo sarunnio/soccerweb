@@ -1,16 +1,10 @@
 Soccerweb::Application.routes.draw do
   resources :clubs
-
-  resources :clubs
-
-  resources :teams
-
   resources :leagues
-
   resources :sessions
   resources :users
-  resources :leagues
-  resources :teams
+
+
   
   match '/about',   :to => 'pages#about'
   match '/signup',  :to => 'users#new'

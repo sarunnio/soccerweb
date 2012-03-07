@@ -38,11 +38,13 @@
     $(document).ready(function(){
         $("select#league_id").change(function(){
             var id_value_string = $(this).val();
+			
             if (id_value_string == "") { 
                 // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
                 $("select#user_club_id option").remove();
                 var row = "<option value=\"" + "" + "\">" + "" + "</option>";
                 $(row).appendTo("select#user_club_id");
+                
             }
             else {
                 // Send the request and update sub category dropdown 
@@ -54,7 +56,9 @@
                     error: function(XMLHttpRequest, errorTextStatus, error){
                         alert("Failed to submit : "+ errorTextStatus+" ;"+error);
                     },
-                    success: function(data){                    
+                    success: function(data){
+                    	
+                    	                 
                         // Clear all options from sub category select 
                         $("select#user_club_id option").remove();
                         //put in a empty default line
@@ -62,7 +66,7 @@
                         $(row).appendTo("select#user_club_id");                        
                         // Fill sub category select 
                         
-                        //alert (data.length);
+                        
                         $.each(data, function(i, j){
                             //alert(j.id);
                             row = "<option value=\"" + j.id + "\">" + j.club_name + "</option>";   
