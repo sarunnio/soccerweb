@@ -222,18 +222,19 @@ dl dd {
 .teamBox {
 	padding: 4px;
 	background: #ff4455;
+	margin:  1px 1px 1px 1px;
 }
 
 .imageTeamBox {
 	float:left;
-	height: 100px;
-	width: 100px;
+	height: 80px;
+	width: 80px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .textTeam{
-	float:left;
-	margin-left: 4px;
-	
+	margin-left: 104px;	
 }
 
 
@@ -241,3 +242,20 @@ dl dd {
 	clear:both;	
 }
 
+.newBox{
+	float:left;
+	width: 100px;	
+	height: 100px;
+	background: #FFFF00;
+}
+
+.newTopBox{
+	
+}
+
+.newBottomBox{
+	/*margin-left: 20%;
+	margin-right: 20%;*/
+	text-align:center;
+	
+}
