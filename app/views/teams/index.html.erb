@@ -1,20 +1,12 @@
-<table>
-  <tr>
-    <th>Team Name</th>
-    
-  </tr>
+Teams
   <% for team in @teams %>
-    <tr>
-      <td><%=h team.team_name %></td>      
-    </tr>
-    
-    
-    
-    
+    <div  class="teamBox">
+    	<image src="images/gravatar.jpg"  
+    	 class="imageTeamBox"
+    	>
+    	</img>	
+    	<div class="textTeam"><%=h team.team_name %></div>	
+    	<div class="clearBoth"></div>
+    </div>
   <% end %>
   
-  
-
-  
-  
-</table>

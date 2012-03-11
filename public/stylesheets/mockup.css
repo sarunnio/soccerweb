@@ -218,3 +218,26 @@ dl dd {
     margin:2px 0;
     padding:5px 0;
 }
+
+.teamBox {
+	padding: 4px;
+	background: #ff4455;
+}
+
+.imageTeamBox {
+	float:left;
+	height: 100px;
+	width: 100px;
+}
+
+.textTeam{
+	float:left;
+	margin-left: 4px;
+	
+}
+
+
+.clearBoth {
+	clear:both;	
+}
+
