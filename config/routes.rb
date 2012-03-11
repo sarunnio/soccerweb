@@ -3,6 +3,7 @@ Soccerweb::Application.routes.draw do
   resources :leagues
   resources :sessions
   resources :users
+  resources :teams
 
 
   

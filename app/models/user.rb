@@ -7,7 +7,14 @@ class User < ActiveRecord::Base
                        :confirmation => true, 
                        :length => {:within => 6..40}
                        
-  validates :club_id, :presence=> true
+  validates :club_id, :presence => true
+
+  has_many :teamusers, :foreign_key => :user_id
+  has_many :teams, :through => :teamusers
+  # has_many  :team_users,   
+            # :foreign_key => "user_id"
+#             
+  # belongs_to :team_users
   
   before_save :encrypt_password
   

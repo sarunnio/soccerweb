@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304182402) do
+ActiveRecord::Schema.define(:version => 20120307041129) do
 
   create_table "cars", :force => true do |t|
     t.string   "make"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(:version => 20120304182402) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "teams", :force => true do |t|
+    t.string   "team_name"
+    t.integer  "captaincy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teamusers", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teamusers", ["team_id", "user_id"], :name => "index_teamusers_on_team_id_and_user_id", :unique => true
+  add_index "teamusers", ["team_id"], :name => "index_teamusers_on_team_id"
+  add_index "teamusers", ["user_id"], :name => "index_teamusers_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
