@@ -1,12 +1,22 @@
 Teams
   <% for team in @teams %>
-    <div  class="teamBox">
-    	<image src="images/gravatar.jpg"  
-    	 class="imageTeamBox"
-    	>
-    	</img>	
-    	<div class="textTeam"><%=h team.team_name %></div>	
-    	<div class="clearBoth"></div>
-    </div>
+   <div  class="teamBox">
+		<div class="newBox">
+			<div class="newTopBox">
+				<img src="images/gravatar.jpg" class="imageTeamBox"></img>	
+			</div>
+			<div class="newBottomBox">
+				<p><%= team.team_name %></p>
+			</div>
+			
+		</div>
+		<div class="teamBoxRight">
+			<p><%= link_to 'Show', team %></p>
+		</div>
+		<p class="textTeam">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et </p>	
+		
+		<div class="clearBoth"></div>
+		
+	</div>
   <% end %>
   

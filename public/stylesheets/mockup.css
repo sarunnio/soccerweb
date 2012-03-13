@@ -235,6 +235,7 @@ dl dd {
 
 .textTeam{
 	margin-left: 104px;	
+	margin-right: 10px;
 }
 
 
@@ -258,4 +259,10 @@ dl dd {
 	margin-right: 20%;*/
 	text-align:center;
 	
+}
+
+.teamBoxRight{
+	float:right;
+	text-align:center;
+	width: 100px;
 }
