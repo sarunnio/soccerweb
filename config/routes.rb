@@ -11,6 +11,7 @@ Soccerweb::Application.routes.draw do
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/j', :to => 'teams#j'
   
   match '/clubs/for_leagueid/:id' => 'clubs#for_leagueid'
   root :to => 'pages#home'

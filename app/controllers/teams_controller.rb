@@ -12,5 +12,9 @@ class TeamsController < ApplicationController
     
   end
   
+  def j
+    
+  end
+  
   
 end
