@@ -1,4 +1,10 @@
 Teams
+<% if signed_in? %>
+	<% @user ||= current_user %>
+	<h1><%= @user.name %></h1>
+<% end %>
+
+
   <% for team in @teams %>
    <div  class="teamBox">
 		<div class="newBox">

@@ -1,4 +1,6 @@
 Soccerweb::Application.routes.draw do
+  resources :books
+
   resources :clubs
   resources :leagues
   resources :sessions
