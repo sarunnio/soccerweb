@@ -1,0 +1,23 @@
+
+
+
+<% if signed_in? %>
+	<table class="front" summary="For signed-in users">
+    	<tr>
+      		<td class="sidebar round">
+        		<%= render 'shared/user_info' %>
+      		</td>
+    	</tr>
+  	</table>
+
+<% else %>
+	
+	<div id="signupBox">
+	<div class="push"></div>
+		<!--a href="#" class="signup_button round">sign up</a-->
+		<%= link_to "Sign up now", signup_path,:class=> "signup_button round" %>	
+		<div id="joinToday"><p>Join today!</p></div>	
+	</div>
+	<div id="featuredPicture"></div>
+	
+<% end %>
