@@ -6,7 +6,7 @@ Soccerweb::Application.routes.draw do
   resources :sessions
   resources :users
   resources :teams
-
+  resources :projects
 
   
   match '/about',   :to => 'pages#about'
